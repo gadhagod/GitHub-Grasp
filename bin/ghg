@@ -16,6 +16,7 @@ def ghg():
 @click.option('-o', '--output', required=False, help='Output to local file')
 def scrape(repo, branch, file, output):
     target = '{}/{}/{}/{}'.format(url, repo, branch, file)
+    print(target)
     res = get(target).text
     if output:
         open(output, '+w').write(res)
