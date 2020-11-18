@@ -33,3 +33,5 @@ If you wanted a file from a specific branch, you add the option `--branch`. \
 So for example, if you wanted the file `.github/stale.yml` from the branch [`17.0.1`](https://github.com/facebook/react/tree/17.0.1) of the React repository, you would run...
 
     ghg scrape -r facebook/react -f .github/stale -b 17.0.1 -o test.yml
+
+**NOTE**: This branch has probably been deleted.

@@ -5,6 +5,10 @@ from requests import get
 
 url = 'https://raw.githubusercontent.com'
 
+class styles:
+    end = '\033[0m'
+    red = '\033[31m'
+
 @click.group()
 def ghg():
     'Get single files from github onto your computer'
@@ -16,8 +20,10 @@ def ghg():
 @click.option('-o', '--output', required=False, help='Output to local file')
 def scrape(repo, branch, file, output):
     target = '{}/{}/{}/{}'.format(url, repo, branch, file)
-    print(target)
     res = get(target).text
+    if res == '404: Not Found':
+        click.echo('{}File doesn\'t exist{}'.format(styles.red, styles.end))
+        exit()
     if output:
         open(output, '+w').write(res)
     else:
