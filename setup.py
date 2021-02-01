@@ -14,7 +14,7 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    install_requires=['click'],
+    install_requires=['click', 'requests'],
     scripts=['./bin/ghg'],
     python_requires='>=3.6'
 )
